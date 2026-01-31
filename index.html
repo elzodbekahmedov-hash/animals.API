@@ -1,0 +1,354 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Animals</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+  <link href="./css/output.css" rel="stylesheet">
+</head>
+
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500 ...">
+
+
+ <form class="mx-auto w-full relative mt-[20px] px-10">
+  <div class="flex items-center shadow-xs rounded-base gap-x-3">
+    <button
+      id="dropdown-button"
+      data-dropdown-toggle="dropdown"
+      type="button"
+      class="inline-flex items-center shrink-0 z-10 
+             text-body bg-neutral-secondary-medium 
+             border border-default-medium hover:bg-neutral-tertiary-medium hover:text-heading focus:ring-4 focus:ring-neutral-tertiary font-medium text-sm px-4 py-4 rounded-s-base focus:outline-none rounded-[12px] h-14"
+    >
+      <svg class="w-4 h-4 me-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-width="2" d="M9.143 4H4.857A.857.857 0 0 0 4 4.857v4.286c0 .473.384.857.857.857h4.286A.857.857 0 0 0 10 9.143V4.857A.857.857 0 0 0 9.143 4Z"/>
+      </svg>
+      All categories
+      <svg class="w-4 h-4 ms-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+        <path stroke="currentColor" stroke-width="2" d="m19 9-7 7-7-7"/>
+      </svg>
+    </button>
+
+  
+    <div id="dropdown" class="hidden absolute mt-24 bg-neutral-primary-medium border border-default-medium rounded-base shadow-lg w-44">
+      <ul class="p-2 text-sm text-body font-medium">
+        <li><a class="block p-2 rounded-md hover:bg-neutral-tertiary-medium" href="#">Mammal</a></li>
+        <li><a class="block p-2 rounded-md hover:bg-neutral-tertiary-medium" href="#">Reptile</a></li>
+        <li><a class="block p-2 rounded-md hover:bg-neutral-tertiary-medium" href="#">Fish</a></li>
+        <li><a class="block p-2 rounded-md hover:bg-neutral-tertiary-medium" href="#">Brid</a></li>
+      </ul>
+    </div>
+
+
+    <input
+      type="search"
+      class="flex-1 px-4 py-4 mt-1
+             bg-neutral-secondary-medium 
+             border-y border-default-medium  text-heading text-base focus:ring-brand focus:border- outline-none placeholder:text-body rounded-[12px]"
+      placeholder="Search for products"
+      required
+    >
+
+     <div id="navbar-sticky" class="hidden md:flex w-100% h-14">
+        <a href="./add.html"
+          class="inline-flex items-center text-white bg-brand hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium rounded-base text-sm px-4 py-2.5">
+          + Add Animal
+        </a>
+      </div>
+
+  </div>
+</form>
+
+</header>
+
+
+
+
+
+<!-- Card template -->
+<div id="container" class="grid grid-cols-3 pt-40 gap-5 p-5"></div>
+
+<div id="loader" class="grid grid-cols-3 gap-5 p-5 relative mt-[-50px]"></div>
+
+
+<template id="templateCard">
+
+  <div class="bg-neutral-primary-soft max-w-sm border border-default rounded-base shadow-xs">
+
+    <div class="p-6 text-center">
+
+      <span
+        class="inline-flex items-center bg-brand-softer border border-brand-subtle text-fg-brand-strong text-xs font-medium px-1.5 py-0.5 rounded-sm">
+
+        <svg class="w-3 h-3 me-1" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M18.122 17.645a7.185 7.185 0 0 1-2.656 2.495 7.06 7.06 0 0 1-3.52.8536.617 6.617 0 0 1-3.306-.718 6.73 6.73 0 0 1-2.54-2.266c-2.672-4.57.287-8.846.887-9.668A4.448 4.448 0 0 0 8.07 6.314.49 4.49 0 0 0 7.997 4c1.284.965 6.43 3.258 5.525 10.6311.496-1.136 2.7-3.046 2.846-6.2161.43 1.061 3.985 5.462 1.754 9.23Z"/>
+        </svg>
+
+      zoo city
+      </span>
+
+      <h5 class="mt-3 mb-3 text-2xl font-semibold text-heading leading-8">
+        Streamlining your design process today.
+      </h5>
+
+      <p class="text-body mb-6"></p>
+
+      <a href="#"
+        class="js-more-btn inline-flex items-center text-white bg-brand hover:bg-brand-strong focus:ring-4 focus:ring-brand-medium shadow-xs font-medium rounded-base text-sm px-4 py-2.5 mb-4">
+
+        Read more
+
+        <svg class="w-4 h-4 ms-1.5" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+          <path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2"
+            d="M19 12H5m14 0-4 4m4-4-4-4"/>
+        </svg>
+      </a>
+
+      <!-- Buttons -->
+      <div class="flex justify-center gap-4">
+
+        <button
+  class="js-delete-btn group relative flex h-14 w-14 flex-col items-center justify-center overflow-hidden rounded-xl border-2 border-red-800 bg-red-400 hover:bg-red-600"
+>
+  <svg
+    viewBox="0 0 1.625 1.625"
+    class="absolute -top-7 fill-white delay-100 group-hover:top-6 group-hover:animate-[spin_1.4s] group-hover:duration-1000"
+    height="15"
+    width="15"
+  >
+    <path
+      d="M.471 1.024v-.52a.1.1 0 0 0-.098.098v.618c0 .054.044.098.098.098h.487a.1.1 0 0 0 .098-.099h-.39c-.107 0-.195 0-.195-.195"
+    ></path>
+    <path
+      d="M1.219.601h-.163A.1.1 0 0 1 .959.504V.341A.033.033 0 0 0 .926.309h-.26a.1.1 0 0 0-.098.098v.618c0 .054.044.098.098.098h.487a.1.1 0 0 0 .098-.099v-.39a.033.033 0 0 0-.032-.033"
+    ></path>
+    <path
+      d="m1.245.465-.15-.15a.02.02 0 0 0-.016-.006.023.023 0 0 0-.023.022v.108c0 .036.029.065.065.065h.107a.023.023 0 0 0 .023-.023.02.02 0 0 0-.007-.016"
+    ></path>
+  </svg>
+  <svg
+    width="16"
+    fill="none"
+    viewBox="0 0 39 7"
+    class="origin-right duration-500 group-hover:rotate-90"
+  >
+    <line stroke-width="4" stroke="white" y2="5" x2="39" y1="5"></line>
+    <line
+      stroke-width="3"
+      stroke="white"
+      y2="1.5"
+      x2="26.0357"
+      y1="1.5"
+      x1="12"
+    ></line>
+  </svg>
+  <svg width="16" fill="none" viewBox="0 0 33 39" class="">
+    <mask fill="white" id="path-1-inside-1_8_19">
+      <path
+        d="M0 0H33V35C33 37.2091 31.2091 39 29 39H4C1.79086 39 0 37.2091 0 35V0Z"
+      ></path>
+    </mask>
+    <path
+      mask="url(#path-1-inside-1_8_19)"
+      fill="white"
+      d="M0 0H33H0ZM37 35C37 39.4183 33.4183 43 29 43H4C-0.418278 43 -4 39.4183 -4 35H4H29H37ZM4 43C-0.418278 43 -4 39.4183 -4 35V0H4V35V43ZM37 0V35C37 39.4183 33.4183 43 29 43V35V0H37Z"
+    ></path>
+    <path stroke-width="4" stroke="white" d="M12 6L12 29"></path>
+    <path stroke-width="4" stroke="white" d="M21 6V29"></path>
+  </svg>
+</button>
+
+<a
+  
+  class="js-edit-button md:block pl-2 pt-2 bg-green-300 text-white hover:bg-indigo-800 shadow-3xl rounded-xl z-30 group"
+>
+  <div class="relative h-12 w-12">
+    <svg
+      xmlns="http://www.w3.org/2000/svg"
+      fill="white"
+      viewBox="0 0 48 48"
+      height="48"
+      width="48"
+      class="absolute inset-0 z-30"
+    >
+      <rect
+        fill="white"
+        transform="rotate(-50, 38, 38)"
+        rx="2"
+        height="6"
+        width="30"
+        y="10"
+        x="25"
+      ></rect>
+      <rect
+        fill="silver"
+        transform="rotate(-50, 31, 18)"
+        rx="1"
+        height="3"
+        width="8"
+        y="10"
+        x="25"
+      ></rect>
+    </svg>
+
+    <svg
+      fill="yellow"
+      viewBox="0 0 24 24"
+      xmlns="http://www.w3.org/2000/svg"
+      class="absolute right-6 top-0 h-6 w-6 text-white z-20 hidden group-hover:block"
+    >
+      <path
+        clip-rule="evenodd"
+        d="M9.813 15.904L9 18.75l-.813-2.846a4.5 4.5 0 00-3.09-3.09L2.25 12l2.846-.813a4.5 4.5 0 003.09-3.09L9 5.25l.813 2.846a4.5 4.5 0 003.09 3.09L15.75 12l-2.846.813a4.5 4.5 0 00-3.09 3.09zM18.259 8.715L18 9.75l-.259-1.035a3.375 3.375 0 00-2.455-2.456L14.25 6l1.036-.259a3.375 3.375 0 002.455-2.456L18 2.25l.259 1.035a3.375 3.375 0 002.456 2.456L21.75 6l-1.035.259a3.375 3.375 0 00-2.456 2.456zM16.894 20.567L16.5 21.75l-.394-1.183a2.25 2.25 0 00-1.423-1.423L13.5 18.75l1.183-.394a2.25 2.25 0 001.423-1.423l.394-1.183.394 1.183a2.25 2.25 0 001.423 1.423l1.183.394-1.183.394a2.25 2.25 0 00-1.423 1.423z"
+        fill-rule="evenodd"
+      ></path>
+    </svg>
+  </div>
+</a>
+
+
+      </div>
+
+    </div>
+  </div>
+
+</template>
+      <!-- taost -->
+ <template id="toast-template">
+      <div
+        class="flex items-center w-full max-w-sm p-4 text-body bg-neutral-primary-soft rounded-base shadow-xs border border-default fixed flex items-center justify-start w-full max-w-[400px] p-3 top-5 end-5 transition-opacity"
+        role="alert"
+        style="z-index: 99999"
+      >
+        <div
+          class="js-toast-icon inline-flex items-center justify-center shrink-0 w-7 h-7 text-fg-warning bg-warning-soft rounded"
+        >
+          <svg
+            class="w-5 h-5"
+            aria-hidden="true"
+            xmlns="http://www.w3.org/2000/svg"
+            width="24"
+            height="24"
+            fill="none"
+            viewBox="0 0 24 24"
+          >
+            <path
+              stroke="currentColor"
+              stroke-linecap="round"
+              stroke-linejoin="round"
+              stroke-width="2"
+              d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"
+            />
+          </svg>
+          <span class="sr-only">Warning icon</span>
+        </div>
+        <div class="js-toast-text ms-3 text-sm font-normal">
+          Improve password difficulty.
+        </div>
+      </div>
+    </template>
+<!-- Skeleton -->
+<template id="templateSkeleton">
+
+  <div role="status" class="flex items-center justify-center h-70 max-w-sm bg-neutral-quaternary rounded-base animate-pulse">
+    <svg class="w-15px h-50px text-fg-disabled" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="30" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linejoin="round" stroke-width="2" d="M10 3v4a1 1 0 0 1-1 1H5m14-4v16a1 1 0 0 1-1 1H6a1 1 0 0 1-1-1V7.914a1 1 0 0 1 .293-.707l3.914-3.914A1 1 0 0 1 9.914 3H18a1 1 0 0 1 1 1ZM9 12h2a1 1 0 0 1 1 1v2a1 1 0 0 1-1 1H9a1 1 0 0 1-1-1v-2a1 1 0 0 1 1-1Zm5.697 2.395v-.733l1.269-1.219v2.984l-1.268-1.032Z"/></svg>
+    <span class="sr-only">Loading...</span>
+</div>
+
+</template>
+<button id="theme-toggle" type="button" class="fixed bottom-10 right-4 bg-neutral-950 text-gray-500 dark:text-gray-400 hover:bg-gray-100 dark:hover:bg-gray-700 focus:outline-none focus:ring-4 focus:ring-gray-200 dark:focus:ring-gray-700 rounded-lg text-sm p-2.5">
+    <svg id="theme-toggle-dark-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M17.293 13.293A8 8 0 016.707 2.707a8.001 8.001 0 1010.586 10.586z"></path></svg>
+    <svg id="theme-toggle-light-icon" class="hidden w-5 h-5" fill="currentColor" viewBox="0 0 20 20" xmlns="http://www.w3.org/2000/svg"><path d="M10 2a1 1 0 011 1v1a1 1 0 11-2 0V3a1 1 0 011-1zm4 8a4 4 0 11-8 0 4 4 0 018 0zm-.464 4.95l.707.707a1 1 0 001.414-1.414l-.707-.707a1 1 0 00-1.414 1.414zm2.12-10.607a1 1 0 010 1.414l-.706.707a1 1 0 11-1.414-1.414l.707-.707a1 1 0 011.414 0zM17 11a1 1 0 100-2h-1a1 1 0 100 2h1zm-7 4a1 1 0 011 1v1a1 1 0 11-2 0v-1a1 1 0 011-1zM5.05 6.464A1 1 0 106.465 5.05l-.708-.707a1 1 0 00-1.414 1.414l.707.707zm1.414 8.486l-.707.707a1 1 0 01-1.414-1.414l.707-.707a1 1 0 011.414 1.414zM4 11a1 1 0 100-2H3a1 1 0 000 2h1z" fill-rule="evenodd" clip-rule="evenodd"></path></svg>
+</button>
+
+
+<script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+<script type="module" src="./js/app.js"></script>
+<script>
+    
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+
+    var themeToggleDarkIcon = document.getElementById('theme-toggle-dark-icon');
+var themeToggleLightIcon = document.getElementById('theme-toggle-light-icon');
+
+
+if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+    themeToggleLightIcon.classList.remove('hidden');
+} else {
+    themeToggleDarkIcon.classList.remove('hidden');
+}
+
+var themeToggleBtn = document.getElementById('theme-toggle');
+
+themeToggleBtn.addEventListener('click', function() {
+
+   
+    themeToggleDarkIcon.classList.toggle('hidden');
+    themeToggleLightIcon.classList.toggle('hidden');
+
+    
+    if (localStorage.getItem('color-theme')) {
+        if (localStorage.getItem('color-theme') === 'light') {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+        } else {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+        }
+
+    } else {
+        if (document.documentElement.classList.contains('dark')) {
+            document.documentElement.classList.remove('dark');
+            localStorage.setItem('color-theme', 'light');
+        } else {
+            document.documentElement.classList.add('dark');
+            localStorage.setItem('color-theme', 'dark');
+        }
+    }
+    
+});
+
+</script>
+<script>
+  function toastUI(text = "This is toast", status = "warning") {
+    const toastConfig = {
+        warning: {
+            icon: `<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 13V8m0 8h.01M21 12a9 9 0 1 1-18 0 9 9 0 0 1 18 0Z"></path></svg>`,
+            classes: "text-fg-warning bg-warning-soft"
+        },
+        error: {
+            icon: `<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18 17.94 6M18 18 6.06 6"/></svg>`,
+            classes: "text-fg-danger bg-danger-soft"
+        },
+        success: {
+            icon: `<svg class="w-5 h-5" aria-hidden="true" xmlns="http://www.w3.org/2000/svg" width="24" height="24" fill="none" viewBox="0 0 24 24"><path stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 11.917 9.724 16.5 19 7.5"/></svg>`,
+            classes: "text-fg-success bg-success-soft"
+        }
+    };
+
+    const config = toastConfig[status] || toastConfig.warning;
+    const cloneToast = elToastTemplate.cloneNode(true).content;
+    
+    const iconEl = cloneToast.querySelector(".js-toast-icon");
+    iconEl.innerHTML = config.icon;
+    iconEl.className = `js-toast-icon ${config.classes}`;
+    
+    cloneToast.querySelector(".js-toast-text").textContent = text;
+    document.body.append(cloneToast);
+
+    setTimeout(() => document.body.querySelector("[role='alert']").classList.add("opacity-[0]"), 2500);
+    setTimeout(() => document.body.querySelector("[role='alert']").remove(), 3250);
+}
+
+</script>
+
+</body>
+</html>

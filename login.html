@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Animals Login</title>
+  <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+  <link href="./css/output.css" rel="stylesheet" />
+</head>
+
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+  <div class="relative py-3 sm:max-w-xl sm:mx-auto">
+    <div class="relative px-4 py-10 bg-black mx-8 md:mx-0 shadow rounded-3xl sm:p-10">
+      <div class="max-w-md mx-auto text-white">
+
+        <form id="form" class="space-y-6">
+
+          <div>
+            <label class="font-semibold text-sm text-gray-400 pb-1 block" for="username">
+              Username
+            </label>
+            <input
+              class="border rounded-lg px-3 py-2 mt-1 text-sm w-full bg-gray-800 text-white
+                     focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              type="text"
+              id="username"
+              name="username"
+              placeholder="Enter your username"
+              autocomplete="username"
+              required
+            />
+          </div>
+
+          <div>
+            <label class="font-semibold text-sm text-gray-400 pb-1 block" for="password">
+              Password
+            </label>
+            <input
+              class="border rounded-lg px-3 py-2 mt-1 text-sm w-full bg-gray-800 text-white
+                     focus:border-blue-500 focus:ring-2 focus:ring-blue-500"
+              type="password"
+              id="password"
+              name="password"
+              placeholder="Enter your password"
+              autocomplete="current-password"
+              required
+            />
+          </div>
+
+          <button
+            class="py-2 px-4 bg-blue-600 hover:bg-blue-700 focus:ring-blue-500 focus:ring-offset-blue-200
+                   text-white w-full transition ease-in duration-200 text-center text-base font-semibold
+                   shadow-md focus:outline-none focus:ring-2 focus:ring-offset-2 rounded-lg"
+            type="submit"
+          >
+            Log in
+          </button>
+
+          <div class="flex items-center justify-between mt-4">
+            <span class="w-1/5 border-b border-gray-600 md:w-1/4"></span>
+            <a class="text-xs text-gray-400 uppercase hover:underline" href="./register.html">
+              Create account
+            </a>
+            <span class="w-1/5 border-b border-gray-600 md:w-1/4"></span>
+          </div>
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+
+  <script src="./node_modules/flowbite/dist/flowbite.min.js"></script>
+  <script type="module" src="./js/login.js"></script>
+</body>
+</html>

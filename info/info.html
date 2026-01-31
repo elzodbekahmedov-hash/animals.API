@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/flowbite@4.0.1/dist/flowbite.min.css" rel="stylesheet" />
+  <link href="/css/output.css" rel="stylesheet">
+    <title>information animals</title>
+</head>
+<body class="bg-gradient-to-r from-indigo-500 via-purple-500 to-pink-500">
+
+  <a href="/index.html" class="inline-block mt-[20px] ml-[20px]">
+  <button 
+    class="bg-white text-center w-48 rounded-2xl h-14 relative text-black text-xl font-semibold group"
+    type="button"
+  >
+    <div
+      class="bg-green-400 rounded-xl h-12 w-1/4 flex items-center justify-center absolute left-1 top-[4px] 
+             group-hover:w-[184px] z-10 duration-500"
+    >
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1024 1024" height="25px" width="25px">
+        <path d="M224 480h640a32 32 0 1 1 0 64H224a32 32 0 0 1 0-64z" fill="#000000"/>
+        <path d="m237.248 512 265.408 265.344a32 32 0 0 1-45.312 45.312l-288-288a32 32 0 0 1 0-45.312l288-288a32 32 0 1 1 45.312 45.312L237.248 512z" fill="#000000"/>
+      </svg>
+    </div>
+    <p class="translate-x-2">Go Back</p>
+  </button>
+</a>
+
+    <form id="animal_info">
+      <div
+        class="flex flex-col justify-center overflow-x-hidden p-6 mt-20 mb-10 border bg-transparent border-stone-700 w-75 m-w-75 mx-auto gap-3 rounded-md"
+      >
+        <div class="flex">
+          <span class="text-black-700 font-bold">Name:&nbsp &nbsp</span>
+          <h2 class="Name"></h2>
+        </div>
+        <div class="flex">
+          <span class="text-black-700 font-bold">Category:&nbsp &nbsp</span>
+          <p class="Category"></p>
+        </div>
+        <div class="flex">
+          <span class="text-black-700 font-bold">Speed:&nbsp &nbsp</span>
+          <p class="speed"></p>
+        </div>
+        <div class="flex">
+          <span class="text-black-700 font-bold">SaundText:&nbsp</span>
+          <p class="SaundText"></p>
+        </div>
+        <div class="flex">
+          <span class="text-black-700 font-bold"> Years:&nbsp &nbsp</span>
+          <p class="Years"></p>
+        </div>
+        <div class="flex">
+          <span class="text-black-700 font-bold">Weight:&nbsp &nbsp</span>
+          <p class="Weight"></p>
+        </div>
+        <div class="flex">
+          <span class="text-black-700 font-bold">Color:&nbsp &nbsp</span>
+          <p class="Color"></p>
+        </div>
+        <div class="flex">
+          <span class="text-black-700 font-bold">Habitate:&nbsp &nbsp</span>
+          <p class="Habitate"></p>
+        </div>
+        <div class="flex">
+          <span class="text-black-700 font-bold">isWild:&nbsp &nbsp</span>
+          <p class="isWild">
+        </div>  
+       
+        </div>
+      </div>
+   </form>
+
+<script>
+   
+    if (localStorage.getItem('color-theme') === 'dark' || (!('color-theme' in localStorage) && window.matchMedia('(prefers-color-scheme: dark)').matches)) {
+        document.documentElement.classList.add('dark');
+    } else {
+        document.documentElement.classList.remove('dark')
+    }
+</script>
+
+
+    <script src="/node_modules/flowbite/dist/flowbite.min.js"></script>
+<script type="module" src="/js/details.js"></script>
+
+</body>
+</html>
